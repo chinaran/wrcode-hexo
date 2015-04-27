@@ -3,12 +3,13 @@ date: 2015-04-27 14:31:34
 categories: driver
 tags: [kernel, driver]
 ---
-**注：**如果想要按照本篇实践，需要有能运行的arm开发板和对应版本的内核（也可参考其他文章直接在Linux主机上编译运行）
+**注：**如果想要按照本篇实践，需要有能运行的arm开发板和对应版本的内核（如果想在Linux主机上编译运行，请参考附1）
 
 ###1. 在相应版本内核的driver目录下新建如下文件：
 ![module file tree][1]
 
 其中文件代码如下：
+<!-- more -->
 /\* **hello.c** \*/
 
     #include <linux/init.h>
@@ -88,6 +89,29 @@ drivers 下的 Makefile 末尾加一行
 ###5. 使用 modinfo 查看模块信息：
 ![modinfo][3]
 
+###附1：编译模块在PC上运行
+把 hello.c 和 Makefile 放在同一目录
+/\* **Makefile** \*/
+
+    KERNEL_VER = $(shell uname -r)
+
+	# kernel modules
+	obj-m += hello.o
+
+	# specify flags for the module compilation
+	EXTRA_CFLAGS = -g -O0
+
+	build: kernel_modules
+
+	kernel_modules:
+		make -C /lib/modules/$(KERNEL_VER)/build M=$(CURDIR) modules
+
+	clean:
+		make -C /lib/modules/$(KERNEL_VER)/build M=$(CURDIR) clean
+编译运行**步骤**如下图：
+![hello模块在PC上编译运行][4]
+
   [1]: /images/Linux-最简单内核模块-Hello-World-示例/1.png
   [2]: /images/Linux-最简单内核模块-Hello-World-示例/2.png
   [3]: /images/Linux-最简单内核模块-Hello-World-示例/3.png
+  [4]: /images/Linux-最简单内核模块-Hello-World-示例/4.png
