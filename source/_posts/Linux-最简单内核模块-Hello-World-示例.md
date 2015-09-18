@@ -9,8 +9,8 @@ tags: [kernel, driver]
 ![module file tree][1]
 
 其中文件代码如下：
-<!-- more -->
 /\* **hello.c** \*/
+<!-- more -->
 
     #include <linux/init.h>
 	#include <linux/module.h>
