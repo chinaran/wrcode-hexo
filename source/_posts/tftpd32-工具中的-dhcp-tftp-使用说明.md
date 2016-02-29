@@ -3,18 +3,18 @@ date: 2016-02-29 19:28:18
 categories: tool
 tags: [tftpd32, DHCP, tftp]
 ---
- 1. 下载 tftpd32 工具
+ **1. 下载 tftpd32 工具**
 [点我下载][1]（tftpd32_v4.5.2绿色版.zip）
 
- 2. 解压运行
+ **2. 解压运行**
 ![tftpd32 运行][2]
 
- 3. DHCP服务器配置
+ **3. DHCP服务器配置**
 例如分配10段的网络
 <!-- more -->
 ![DHCP 配置][3]
 
- 4. tftp服务器配置
+ **4. tftp服务器配置**
 设置好路径和ip即可
 ![tftp 配置][4]
 
