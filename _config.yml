@@ -87,5 +87,5 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/chinaran/wrcode.github.io.git
+  repository: https://github.com/chinaran/chinaran.github.io.git
   branch: master
