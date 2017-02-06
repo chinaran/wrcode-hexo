@@ -86,6 +86,6 @@ exclude_generator:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
-  repository: https://gitcafe.com/wrcode/wrcode.git
-  branch: gitcafe-pages
+  type: git
+  repository: https://github.com/chinaran/wrcode.github.io.git
+  branch: master
